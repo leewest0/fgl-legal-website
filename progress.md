@@ -30,12 +30,15 @@ Status tracker for the firm website. Check items off as they're completed.
 
 ## ⏳ In progress / handed to client
 
-- [ ] **Open the pull request** — one click:
-      https://github.com/leewest0/fgl-legal-website/compare/main...claude/ghana-law-firm-site-jyrt70?expand=1
-      (Use **Squash and merge** or **Rebase and merge** — `main` has an unrelated
-      empty history, so a plain merge commit can be finicky.)
-- [ ] After merge: set `main` as the **default branch** (GitHub → Settings → Branches)
-- [ ] **Deploy to Vercel** — import repo, framework auto-detected, no config needed
+- [x] **Site published to `main`** — the full site now lives on the `main` branch and
+      is ready to deploy. (We skipped a review PR: `main` and the working branch had
+      unrelated git histories, so GitHub wouldn't compare/merge them. The site was
+      fast-forwarded onto `main` instead — same code, no force-push.)
+- [ ] **Set `main` as the default branch** (optional but tidy): GitHub → Settings →
+      Branches → switch default to `main`. The old working branch
+      `claude/ghana-law-firm-site-jyrt70` can then be deleted.
+- [ ] **Deploy to Vercel** — import the repo, framework auto-detected, no config
+      needed. Set the **Production Branch** to `main` (Vercel → Settings → Git).
 
 ---
 
