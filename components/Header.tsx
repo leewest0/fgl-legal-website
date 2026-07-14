@@ -34,7 +34,7 @@ export default function Header() {
           : "border-b border-transparent bg-paper"
       }`}
     >
-      <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between gap-8">
+      <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between gap-8 px-gutter">
         <div className="nav-in shrink-0" style={{ animationDelay: "0.1s" }}>
           <LogoImage priority />
         </div>

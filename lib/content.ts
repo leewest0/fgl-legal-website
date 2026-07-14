@@ -31,7 +31,6 @@ export const nav = [
 export const hero = {
   headline: "Legal Solutions Built Around Your Business",
   subline: "Modern Legal Counsel. Practical Solutions. Trusted Partnership.",
-  body: "At FGL LEGAL (Adullam Chambers), we combine legal excellence with commercial insight to help individuals, entrepreneurs, SMEs, and corporate organizations navigate today's complex legal environment with confidence. Whether you're protecting your business, resolving disputes, managing property transactions, or planning your family's future, our experienced legal team is committed to delivering practical, timely, and cost-effective legal solutions.",
 } as const;
 
 export const whyChoose = {

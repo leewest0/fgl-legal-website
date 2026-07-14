@@ -35,9 +35,6 @@ export default function Home() {
             <p className="mt-7 max-w-xl font-display text-xl italic text-paper/85 sm:text-2xl">
               {hero.subline}
             </p>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-paper/70">
-              {hero.body}
-            </p>
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <Button href="/contact" variant="solid">
                 Book a Consultation
