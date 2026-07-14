@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
-import Logo from "./Logo";
+import { LogoImage } from "./Logo";
 import { nav, firm } from "@/lib/content";
 
 export default function Header() {
@@ -35,7 +35,7 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto flex h-20 w-full max-w-6xl items-center justify-between px-gutter">
-        <Logo tone="dark" />
+        <LogoImage priority />
 
         <nav className="hidden items-center gap-9 lg:flex" aria-label="Primary">
           {nav.map((item) => {

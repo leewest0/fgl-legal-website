@@ -1,11 +1,44 @@
 import Link from "next/link";
+import Image from "next/image";
+
+/**
+ * Official brand artwork (the full horizontal lockup) from /public/logo.png.
+ * The image carries its own green background, so it's used as a self-contained
+ * badge on the light header. On dark surfaces (footer/hero) we use the white
+ * SVG <Logo>/<LogoMark> below instead, to avoid a mismatched green box.
+ */
+function LogoImage({
+  href = "/",
+  priority = false,
+  className = "",
+}: {
+  href?: string | null;
+  priority?: boolean;
+  className?: string;
+}) {
+  const img = (
+    <Image
+      src="/logo.png"
+      alt="FGL LEGAL (Adullam Chambers) — Legal Practitioners & Consultants"
+      width={140}
+      height={48}
+      priority={priority}
+      className={`h-11 w-auto sm:h-12 ${className}`}
+    />
+  );
+  if (href === null) return img;
+  return (
+    <Link href={href} aria-label="FGL Legal — home" className="inline-flex">
+      {img}
+    </Link>
+  );
+}
 
 /**
  * Recreation of the FGL LEGAL mark: a pillar / gavel form (arch + crossbar +
  * column + base) framed by the two curly braces from the brand logo.
  * `tone` controls colour so it reads on both light paper and dark green.
- * A client can later drop the official artwork at /public/logo.png and swap
- * <LogoMark/> for an <Image/> without touching the layout.
+ * Used on dark surfaces where the raster logo's green background would clash.
  */
 function LogoMark({
   className = "",
@@ -95,4 +128,4 @@ export default function Logo({
   );
 }
 
-export { LogoMark };
+export { LogoMark, LogoImage };
