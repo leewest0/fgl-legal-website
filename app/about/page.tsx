@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Check } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import { Button, Section, SectionHeading } from "@/components/ui";
+import { Reveal } from "@/components/Reveal";
 import { about, coreValues, differentiators } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -22,10 +23,10 @@ export default function AboutPage() {
       {/* Story */}
       <Section tone="paper">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-4">
+          <Reveal className="lg:col-span-4">
             <SectionHeading kicker="Who We Are" title="About FGL LEGAL" />
-          </div>
-          <div className="lg:col-span-8">
+          </Reveal>
+          <Reveal className="lg:col-span-8" delay={120}>
             <div className="space-y-6 text-lg leading-relaxed text-ink-500">
               {about.paragraphs.map((p, i) => (
                 <p key={i} className={i === 0 ? "text-forest-900" : ""}>
@@ -33,39 +34,41 @@ export default function AboutPage() {
                 </p>
               ))}
             </div>
-          </div>
+          </Reveal>
         </div>
       </Section>
 
       {/* Vision & Mission */}
       <Section tone="forest">
         <div className="grid gap-6 md:grid-cols-2">
-          <div className="border border-paper/15 bg-forest-900/40 p-9">
+          <Reveal className="border border-paper/15 bg-forest-900/40 p-9">
             <span className="brace text-4xl">{"{"}</span>
             <span className="kicker mt-2 block text-gold">Our Vision</span>
             <p className="font-display mt-4 text-xl leading-snug text-paper sm:text-2xl">
               {about.vision}
             </p>
-          </div>
-          <div className="border border-paper/15 bg-forest-900/40 p-9">
+          </Reveal>
+          <Reveal className="border border-paper/15 bg-forest-900/40 p-9" delay={120}>
             <span className="brace text-4xl">{"{"}</span>
             <span className="kicker mt-2 block text-gold">Our Mission</span>
             <p className="font-display mt-4 text-xl leading-snug text-paper sm:text-2xl">
               {about.mission}
             </p>
-          </div>
+          </Reveal>
         </div>
       </Section>
 
       {/* Core values */}
       <Section tone="paper">
-        <SectionHeading
-          kicker="Our Core Values"
-          title="The principles behind every engagement"
-        />
+        <Reveal>
+          <SectionHeading
+            kicker="Our Core Values"
+            title="The principles behind every engagement"
+          />
+        </Reveal>
         <div className="mt-14 grid gap-px overflow-hidden border border-ink/10 bg-ink/10 sm:grid-cols-2 lg:grid-cols-3">
           {coreValues.map((v, i) => (
-            <div key={v.title} className="bg-paper p-8">
+            <Reveal key={v.title} delay={(i % 3) * 80} className="bg-paper p-8">
               <span className="font-display text-sm text-gold">
                 {String(i + 1).padStart(2, "0")}
               </span>
@@ -73,7 +76,7 @@ export default function AboutPage() {
                 {v.title}
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-ink-500">{v.body}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </Section>
@@ -81,7 +84,7 @@ export default function AboutPage() {
       {/* Differentiators */}
       <Section tone="cream">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-5">
+          <Reveal className="lg:col-span-5">
             <SectionHeading
               kicker="Why FGL LEGAL?"
               title="What makes us different"
@@ -92,11 +95,11 @@ export default function AboutPage() {
                 Start a Conversation
               </Button>
             </div>
-          </div>
+          </Reveal>
           <div className="lg:col-span-7">
             <ul className="space-y-6">
-              {differentiators.map((d) => (
-                <li key={d.title} className="flex gap-4">
+              {differentiators.map((d, i) => (
+                <Reveal as="li" key={d.title} delay={i * 80} className="flex gap-4">
                   <span className="mt-1 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-forest text-paper">
                     <Check size={14} strokeWidth={3} />
                   </span>
@@ -106,7 +109,7 @@ export default function AboutPage() {
                     </h3>
                     <p className="mt-1 text-ink-500">{d.body}</p>
                   </div>
-                </li>
+                </Reveal>
               ))}
             </ul>
           </div>
@@ -115,7 +118,7 @@ export default function AboutPage() {
 
       {/* CTA */}
       <Section tone="deep">
-        <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+        <Reveal className="mx-auto flex max-w-3xl flex-col items-center text-center">
           <h2 className="font-display text-3xl font-semibold sm:text-4xl">
             Let&apos;s build lasting protection for what matters.
           </h2>
@@ -128,7 +131,7 @@ export default function AboutPage() {
               Book a Consultation
             </Button>
           </div>
-        </div>
+        </Reveal>
       </Section>
     </>
   );

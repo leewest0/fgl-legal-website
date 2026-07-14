@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import { Button, Section } from "@/components/ui";
+import { Reveal } from "@/components/Reveal";
 import { team } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -28,7 +29,7 @@ export default function TeamPage() {
               }`}
             >
               {/* Portrait placeholder — monogram plate */}
-              <div className="lg:col-span-4">
+              <Reveal className="lg:col-span-4">
                 <div className="relative aspect-[4/5] w-full max-w-xs overflow-hidden bg-forest-800">
                   <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_20%_0%,rgba(21,121,74,0.5),transparent_60%)]" />
                   <span className="brace absolute left-4 top-2 text-6xl text-gold/30">
@@ -41,9 +42,9 @@ export default function TeamPage() {
                     {m.initials}
                   </span>
                 </div>
-              </div>
+              </Reveal>
 
-              <div className="lg:col-span-8">
+              <Reveal className="lg:col-span-8" delay={120}>
                 <span className="kicker text-gold">{m.role}</span>
                 <h2 className="font-display mt-3 text-3xl font-semibold text-forest-900 sm:text-4xl">
                   {m.name}
@@ -62,14 +63,14 @@ export default function TeamPage() {
                     </span>
                   ))}
                 </div>
-              </div>
+              </Reveal>
             </article>
           ))}
         </div>
       </Section>
 
       <Section tone="forest">
-        <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+        <Reveal className="mx-auto flex max-w-3xl flex-col items-center text-center">
           <h2 className="font-display text-3xl font-semibold sm:text-4xl">
             Work directly with our partners
           </h2>
@@ -82,7 +83,7 @@ export default function TeamPage() {
               Book a Consultation
             </Button>
           </div>
-        </div>
+        </Reveal>
       </Section>
     </>
   );

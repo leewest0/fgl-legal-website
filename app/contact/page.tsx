@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import { Section, SectionHeading } from "@/components/ui";
+import { Reveal } from "@/components/Reveal";
 import ContactForm from "@/components/ContactForm";
 import FAQAccordion from "@/components/FAQAccordion";
 import { firm } from "@/lib/content";
@@ -27,7 +28,7 @@ export default function ContactPage() {
       <Section tone="paper">
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-16">
           {/* Details */}
-          <div className="lg:col-span-5">
+          <Reveal className="lg:col-span-5">
             <SectionHeading kicker="Get in Touch" title="Speak with our team" />
 
             <ul className="mt-10 space-y-8">
@@ -96,10 +97,10 @@ export default function ContactPage() {
                 </div>
               </li>
             </ul>
-          </div>
+          </Reveal>
 
           {/* Form */}
-          <div className="lg:col-span-7">
+          <Reveal className="lg:col-span-7" delay={120}>
             <div className="border border-ink/10 bg-paper-200/40 p-7 sm:p-9">
               <h2 className="font-display text-2xl text-forest-900">
                 Request a consultation
@@ -111,13 +112,13 @@ export default function ContactPage() {
                 <ContactForm />
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </Section>
 
       {/* Map */}
       <Section tone="cream" className="!py-0">
-        <div className="relative overflow-hidden border border-ink/10 bg-forest-800">
+        <Reveal className="relative overflow-hidden border border-ink/10 bg-forest-800">
           {/* Fallback shown behind the iframe if the map can't load */}
           <div className="pointer-events-none absolute inset-0 grid place-items-center px-6 text-center">
             <div>
@@ -136,7 +137,7 @@ export default function ContactPage() {
             referrerPolicy="no-referrer-when-downgrade"
             className="relative block w-full grayscale-[0.15]"
           />
-        </div>
+        </Reveal>
         <a
           href={`https://www.google.com/maps/search/?api=1&query=${mapQuery}`}
           target="_blank"
@@ -150,15 +151,15 @@ export default function ContactPage() {
       {/* FAQ */}
       <Section tone="paper">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-4">
+          <Reveal className="lg:col-span-4">
             <SectionHeading
               kicker="FAQ"
               title="Frequently asked questions"
             />
-          </div>
-          <div className="lg:col-span-8">
+          </Reveal>
+          <Reveal className="lg:col-span-8" delay={120}>
             <FAQAccordion />
-          </div>
+          </Reveal>
         </div>
       </Section>
     </>

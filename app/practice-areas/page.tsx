@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import { Button, Section } from "@/components/ui";
+import { Reveal } from "@/components/Reveal";
 import { practiceAreas } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -20,8 +21,9 @@ export default function PracticeAreasPage() {
 
       {/* Quick index */}
       <Section tone="cream" className="!py-12">
-        <nav aria-label="Practice areas" className="flex flex-wrap gap-3">
-          {practiceAreas.map((p, i) => (
+        <Reveal>
+          <nav aria-label="Practice areas" className="flex flex-wrap gap-3">
+            {practiceAreas.map((p, i) => (
             <a
               key={p.slug}
               href={`#${p.slug}`}
@@ -32,8 +34,9 @@ export default function PracticeAreasPage() {
               </span>
               {p.title.replace(" & Alternative Dispute Resolution", " & ADR")}
             </a>
-          ))}
-        </nav>
+            ))}
+          </nav>
+        </Reveal>
       </Section>
 
       {/* Detailed sections */}
@@ -45,7 +48,7 @@ export default function PracticeAreasPage() {
               id={p.slug}
               className="grid scroll-mt-28 gap-8 py-14 lg:grid-cols-12 lg:gap-12"
             >
-              <div className="lg:col-span-5">
+              <Reveal className="lg:col-span-5">
                 <span className="font-display text-5xl text-gold/40">
                   {String(i + 1).padStart(2, "0")}
                 </span>
@@ -54,8 +57,8 @@ export default function PracticeAreasPage() {
                 </h2>
                 <div className="rule-gold mt-5 w-14" />
                 <p className="mt-5 max-w-md text-ink-500">{p.body}</p>
-              </div>
-              <div className="lg:col-span-7">
+              </Reveal>
+              <Reveal className="lg:col-span-7" delay={120}>
                 <h3 className="kicker text-gold">Services include</h3>
                 <ul className="mt-5 grid gap-x-8 gap-y-3 sm:grid-cols-2">
                   {p.services.map((s) => (
@@ -68,7 +71,7 @@ export default function PracticeAreasPage() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </Reveal>
             </article>
           ))}
         </div>
@@ -76,7 +79,7 @@ export default function PracticeAreasPage() {
 
       {/* CTA */}
       <Section tone="forest">
-        <div className="flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-center">
+        <Reveal className="flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-center">
           <div>
             <h2 className="font-display max-w-lg text-2xl font-semibold leading-tight sm:text-3xl">
               Not sure which area your matter falls under?
@@ -91,7 +94,7 @@ export default function PracticeAreasPage() {
               Ask a Lawyer
             </Button>
           </div>
-        </div>
+        </Reveal>
       </Section>
     </>
   );
