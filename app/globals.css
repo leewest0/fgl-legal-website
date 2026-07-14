@@ -112,6 +112,36 @@ body {
   animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+/* Header drops in on first paint */
+@keyframes header-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.header-enter {
+  animation: header-drop 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Nav links fade + settle, staggered via inline delay */
+@keyframes nav-in {
+  from {
+    opacity: 0;
+    transform: translateY(-7px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.nav-in {
+  animation: nav-in 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation: none !important;

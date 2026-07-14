@@ -28,17 +28,19 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-colors duration-300 ${
+      className={`header-enter sticky top-0 z-50 transition-colors duration-300 ${
         scrolled
           ? "border-b border-ink/10 bg-paper/90 backdrop-blur-md"
           : "border-b border-transparent bg-paper"
       }`}
     >
-      <div className="mx-auto flex h-20 w-full max-w-6xl items-center justify-between px-gutter">
-        <LogoImage priority />
+      <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between gap-8 px-gutter">
+        <div className="nav-in shrink-0" style={{ animationDelay: "0.1s" }}>
+          <LogoImage priority />
+        </div>
 
-        <nav className="hidden items-center gap-9 lg:flex" aria-label="Primary">
-          {nav.map((item) => {
+        <nav className="hidden items-center gap-10 lg:flex" aria-label="Primary">
+          {nav.map((item, i) => {
             const active =
               item.href === "/"
                 ? pathname === "/"
@@ -47,8 +49,9 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`link-underline text-[0.82rem] font-medium tracking-wide transition-colors ${
-                  active ? "text-forest" : "text-ink-500 hover:text-forest-800"
+                style={{ animationDelay: `${0.15 + i * 0.06}s` }}
+                className={`nav-in link-underline text-[0.95rem] font-medium tracking-wide transition-colors ${
+                  active ? "text-forest" : "text-ink hover:text-forest"
                 }`}
               >
                 {item.label}
@@ -57,17 +60,17 @@ export default function Header() {
           })}
         </nav>
 
-        <div className="hidden items-center gap-5 lg:flex">
+        <div className="nav-in hidden shrink-0 items-center gap-6 lg:flex" style={{ animationDelay: "0.4s" }}>
           <a
             href={`tel:${firm.phones[0].replace(/\s/g, "")}`}
-            className="flex items-center gap-2 text-[0.8rem] font-medium text-ink-500 transition-colors hover:text-forest-800"
+            className="flex items-center gap-2 whitespace-nowrap text-[0.9rem] font-medium text-ink transition-colors hover:text-forest"
           >
-            <Phone size={15} className="text-gold" />
+            <Phone size={16} className="text-gold" />
             {firm.phones[0]}
           </a>
           <Link
             href="/contact"
-            className="bg-forest px-5 py-3 text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-paper transition-colors hover:bg-forest-800"
+            className="whitespace-nowrap bg-forest px-6 py-3.5 text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-paper shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-forest-800 hover:shadow-md"
           >
             Book a Consultation
           </Link>
