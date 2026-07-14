@@ -50,14 +50,14 @@ completing the steps below. **We are doing this properly at the end.**
 
 Key provided (store in env vars only — NEVER commit): `re_cNFfn6HU_…`
 
-1. [ ] In Resend → **Domains**, add and verify `fgllegalac.com` (add the DNS records
-       Resend provides). Required before the form can email `info@fgllegalac.com` and
-       send from an `@fgllegalac.com` address. Without a verified domain, Resend only
+1. [ ] In Resend → **Domains**, add and verify `fgllegalgh.com` (add the DNS records
+       Resend provides). Required before the form can email `info@fgllegalgh.com` and
+       send from an `@fgllegalgh.com` address. Without a verified domain, Resend only
        allows sending to the Resend account owner's email (test mode).
 2. [ ] In **Vercel → Settings → Environment Variables**, add:
        - `RESEND_API_KEY` = the Resend key
-       - `CONTACT_TO` = `info@fgllegalac.com`
-       - `CONTACT_FROM` = `FGL LEGAL <no-reply@fgllegalac.com>` (address on verified domain)
+       - `CONTACT_TO` = `info@fgllegalgh.com`
+       - `CONTACT_FROM` = `FGL LEGAL <no-reply@fgllegalgh.com>` (address on verified domain)
 3. [ ] **Redeploy** on Vercel so the env vars take effect.
 4. [ ] Submit the live form and confirm the email arrives.
 5. [ ] (Optional) Roll the API key if the value shared in chat should be retired.
@@ -70,7 +70,7 @@ Key provided (store in env vars only — NEVER commit): `re_cNFfn6HU_…`
       `<Image>` in `components/Logo.tsx` (currently a faithful SVG recreation)
 - [ ] Replace the monogram portrait plates on `/team` with real partner photos
 - [ ] Review all copy in `lib/content.ts`
-- [ ] Add a custom domain in Vercel (Settings → Domains → `fgllegalac.com`)
+- [ ] Add a custom domain in Vercel (Settings → Domains → `fgllegalgh.com`)
 
 ---
 

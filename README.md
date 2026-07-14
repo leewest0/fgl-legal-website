@@ -64,12 +64,12 @@ Setup:
 1. Create a free account at <https://resend.com> and copy an API key.
 2. Copy `.env.example` → `.env.local` and set `RESEND_API_KEY`.
 3. (Production) Verify your domain in Resend and set `CONTACT_FROM` to an
-   address on it, e.g. `FGL LEGAL <no-reply@fgllegalac.com>`.
+   address on it, e.g. `FGL LEGAL <no-reply@fgllegalgh.com>`.
 
 | Variable          | Purpose                     | Default                 |
 | ----------------- | --------------------------- | ----------------------- |
 | `RESEND_API_KEY`  | Enables email delivery      | _(unset → logs only)_   |
-| `CONTACT_TO`      | Recipient inbox             | `info@fgllegalac.com`   |
+| `CONTACT_TO`      | Recipient inbox             | `info@fgllegalgh.com`   |
 | `CONTACT_FROM`    | Verified sender             | `onboarding@resend.dev` |
 
 ### Prefer zero backend?

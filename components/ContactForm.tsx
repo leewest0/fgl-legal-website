@@ -48,7 +48,7 @@ export default function ContactForm() {
     } catch {
       setStatus("error");
       setMessage(
-        "We couldn't reach the server. Please try again, or email info@fgllegalac.com."
+        "We couldn't reach the server. Please try again, or email info@fgllegalgh.com."
       );
     }
   }

@@ -49,7 +49,7 @@ export async function POST(req: Request) {
   }
 
   const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.CONTACT_TO || "info@fgllegalac.com";
+  const to = process.env.CONTACT_TO || "info@fgllegalgh.com";
   // Resend requires a verified sender; onboarding@resend.dev works out of the box.
   const from = process.env.CONTACT_FROM || "FGL LEGAL Website <onboarding@resend.dev>";
 

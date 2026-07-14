@@ -10,7 +10,7 @@ export const firm = {
   tagline: "Legal Practitioners & Consultants",
   founded: "2021",
   location: "Kaneshie · Accra, Ghana",
-  email: "info@fgllegalac.com",
+  email: "info@fgllegalgh.com",
   phones: ["+233 303 961 616", "+233 597 435 592", "+233 544 330 617"],
   address: {
     line1: "DF 31 Teiko Ansah Street",
