@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Button, Section, SectionHeading, BraceMark } from "@/components/ui";
+import { Reveal } from "@/components/Reveal";
 import { LogoMark } from "@/components/Logo";
 import {
   hero,
@@ -77,19 +78,21 @@ export default function Home() {
       {/* ------------------------------------------------ Why choose */}
       <Section tone="paper">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-5">
+          <Reveal className="lg:col-span-5">
             <SectionHeading
               kicker={whyChoose.kicker}
               title={whyChoose.title}
               intro={whyChoose.intro}
               as="h2"
             />
-          </div>
+          </Reveal>
           <div className="lg:col-span-7">
             <ul className="divide-y divide-ink/10 border-t border-ink/10">
               {whyChoose.features.map((f, i) => (
-                <li
+                <Reveal
+                  as="li"
                   key={f.title}
+                  delay={i * 80}
                   className="group grid gap-4 py-7 sm:grid-cols-[auto_1fr] sm:gap-8"
                 >
                   <span className="font-display text-2xl text-gold">
@@ -101,7 +104,7 @@ export default function Home() {
                     </h3>
                     <p className="mt-2 text-ink-500">{f.body}</p>
                   </div>
-                </li>
+                </Reveal>
               ))}
             </ul>
           </div>
@@ -111,7 +114,7 @@ export default function Home() {
       {/* ---------------------------------------------- About teaser */}
       <Section tone="forest">
         <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-16">
-          <div className="lg:col-span-6">
+          <Reveal className="lg:col-span-6">
             <span className="kicker text-gold">{about.kicker}</span>
             <h2 className="font-display mt-5 text-3xl font-semibold leading-tight text-paper sm:text-4xl">
               Outstanding legal services, in an atmosphere of grace.
@@ -124,8 +127,8 @@ export default function Home() {
                 More About the Firm
               </Button>
             </div>
-          </div>
-          <div className="lg:col-span-6">
+          </Reveal>
+          <Reveal className="lg:col-span-6" delay={120}>
             <div className="grid gap-5 sm:grid-cols-2">
               <div className="border border-paper/15 bg-forest-900/50 p-7">
                 <span className="kicker text-gold">Our Vision</span>
@@ -140,13 +143,13 @@ export default function Home() {
                 </p>
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </Section>
 
       {/* ---------------------------------------- Practice areas index */}
       <Section tone="paper">
-        <div className="flex flex-col justify-between gap-8 sm:flex-row sm:items-end">
+        <Reveal className="flex flex-col justify-between gap-8 sm:flex-row sm:items-end">
           <SectionHeading
             kicker="Our Practice Areas"
             title="Counsel across the matters that move your business"
@@ -158,11 +161,11 @@ export default function Home() {
           >
             View all 8 areas <ArrowUpRight size={16} />
           </Link>
-        </div>
+        </Reveal>
 
         <ol className="mt-12 border-t border-ink/10">
           {practiceAreas.map((p, i) => (
-            <li key={p.slug}>
+            <Reveal as="li" key={p.slug} delay={i * 60}>
               <Link
                 href={`/practice-areas#${p.slug}`}
                 className="group grid grid-cols-[auto_1fr_auto] items-center gap-5 border-b border-ink/10 py-6 transition-colors hover:bg-paper-200/60 sm:gap-8 sm:py-7"
@@ -183,7 +186,7 @@ export default function Home() {
                   className="text-ink-500 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-gold"
                 />
               </Link>
-            </li>
+            </Reveal>
           ))}
         </ol>
       </Section>
@@ -191,10 +194,10 @@ export default function Home() {
       {/* ---------------------------------------------- Industries */}
       <Section tone="cream">
         <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
-          <div className="lg:col-span-4">
+          <Reveal className="lg:col-span-4">
             <SectionHeading kicker="Industries We Serve" title="Sectors we know" />
-          </div>
-          <div className="lg:col-span-8">
+          </Reveal>
+          <Reveal className="lg:col-span-8" delay={120}>
             <div className="flex flex-wrap gap-3">
               {industries.map((ind) => (
                 <span
@@ -205,13 +208,13 @@ export default function Home() {
                 </span>
               ))}
             </div>
-          </div>
+          </Reveal>
         </div>
       </Section>
 
       {/* -------------------------------------------------- Team teaser */}
       <Section tone="paper">
-        <div className="flex flex-col justify-between gap-8 sm:flex-row sm:items-end">
+        <Reveal className="flex flex-col justify-between gap-8 sm:flex-row sm:items-end">
           <SectionHeading
             kicker="Our Team"
             title="Experienced counsel you can build a relationship with"
@@ -223,26 +226,27 @@ export default function Home() {
           >
             Meet the team <ArrowUpRight size={16} />
           </Link>
-        </div>
+        </Reveal>
         <div className="mt-12 grid gap-6 sm:grid-cols-2">
-          {team.map((m) => (
-            <Link
-              key={m.name}
-              href="/team"
-              className="group flex items-center gap-6 border border-ink/10 bg-paper-200/40 p-6 transition-colors hover:border-forest/30"
-            >
-              <span className="font-display grid h-20 w-20 shrink-0 place-items-center bg-forest-800 text-2xl text-gold-300">
-                {m.initials}
-              </span>
-              <span>
-                <span className="font-display block text-xl text-forest-900">
-                  {m.name}
+          {team.map((m, i) => (
+            <Reveal key={m.name} delay={i * 100}>
+              <Link
+                href="/team"
+                className="group flex items-center gap-6 border border-ink/10 bg-paper-200/40 p-6 transition-colors hover:border-forest/30"
+              >
+                <span className="font-display grid h-20 w-20 shrink-0 place-items-center bg-forest-800 text-2xl text-gold-300">
+                  {m.initials}
                 </span>
-                <span className="mt-1 block text-sm uppercase tracking-[0.12em] text-gold">
-                  {m.role}
+                <span>
+                  <span className="font-display block text-xl text-forest-900">
+                    {m.name}
+                  </span>
+                  <span className="mt-1 block text-sm uppercase tracking-[0.12em] text-gold">
+                    {m.role}
+                  </span>
                 </span>
-              </span>
-            </Link>
+              </Link>
+            </Reveal>
           ))}
         </div>
       </Section>
@@ -250,16 +254,16 @@ export default function Home() {
       {/* ---------------------------------------------------- FAQ strip */}
       <Section tone="cream">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-4">
+          <Reveal className="lg:col-span-4">
             <SectionHeading kicker="FAQ" title="Good to know" />
-          </div>
+          </Reveal>
           <div className="lg:col-span-8">
             <dl className="divide-y divide-ink/10 border-t border-ink/10">
-              {faqs.map((f) => (
-                <div key={f.q} className="py-6">
+              {faqs.map((f, i) => (
+                <Reveal key={f.q} delay={i * 60} className="py-6">
                   <dt className="font-display text-lg text-forest-900">{f.q}</dt>
                   <dd className="mt-2 text-ink-500">{f.a}</dd>
-                </div>
+                </Reveal>
               ))}
             </dl>
           </div>
@@ -269,7 +273,7 @@ export default function Home() {
       {/* ---------------------------------------------------- CTA band */}
       <section className="relative overflow-hidden bg-forest-800 px-gutter py-20 text-paper sm:py-24">
         <BraceMark className="pointer-events-none absolute -left-10 top-1/2 hidden -translate-y-1/2 text-[22rem] leading-none text-gold/[0.07] sm:block" />
-        <div className="relative mx-auto flex w-full max-w-4xl flex-col items-center text-center">
+        <Reveal className="relative mx-auto flex w-full max-w-4xl flex-col items-center text-center">
           <span className="kicker text-gold">Let&apos;s Discuss Your Legal Needs</span>
           <h2 className="font-display mt-5 text-3xl font-semibold leading-tight sm:text-5xl">
             Ready to protect what you&apos;re building?
@@ -289,7 +293,7 @@ export default function Home() {
               {firm.phones[0]}
             </a>
           </div>
-        </div>
+        </Reveal>
       </section>
     </>
   );
