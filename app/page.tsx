@@ -1,8 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { Button, Section, SectionHeading, BraceMark } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
-import { LogoMark } from "@/components/Logo";
 import {
   hero,
   whyChoose,
@@ -46,30 +46,18 @@ export default function Home() {
             </div>
           </div>
 
-          {/* positioning card */}
+          {/* hero image */}
           <div className="rise lg:col-span-5" style={{ animationDelay: "120ms" }}>
-            <div className="relative border border-paper/15 bg-forest-800/40 p-8 backdrop-blur-sm">
-              <div className="absolute -top-px left-0 h-px w-24 bg-gold" />
-              <LogoMark className="h-12 w-12" color="#ddb55a" />
-              <p className="font-display mt-6 text-2xl leading-snug text-paper">
-                A new-generation law firm — legal excellence, commercial insight,
-                delivered in an atmosphere of grace.
-              </p>
-              <dl className="mt-8 grid grid-cols-2 gap-x-6 gap-y-6 border-t border-paper/15 pt-8">
-                {[
-                  ["8", "Practice areas"],
-                  ["10+", "Industries served"],
-                  ["In-person", "& virtual counsel"],
-                  ["Est. 2021", "Kaneshie, Accra"],
-                ].map(([big, small]) => (
-                  <div key={small}>
-                    <dt className="font-display text-2xl text-gold-300">{big}</dt>
-                    <dd className="mt-1 text-[0.8rem] uppercase tracking-wider text-paper/60">
-                      {small}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
+            <div className="relative aspect-[3/4] overflow-hidden border border-paper/15">
+              <div className="absolute -top-px left-0 z-10 h-px w-24 bg-gold" />
+              <Image
+                src="/fgllegal-image-1.png"
+                alt="A wooden gavel resting on a pair of leather-bound law books in warm window light"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-cover"
+              />
             </div>
           </div>
         </div>
