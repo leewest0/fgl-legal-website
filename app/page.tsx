@@ -246,9 +246,21 @@ export default function Home() {
                 href="/team"
                 className="group flex items-center gap-6 border border-ink/10 bg-paper-200/40 p-6 transition-colors hover:border-forest/30"
               >
-                <span className="font-display grid h-20 w-20 shrink-0 place-items-center bg-forest-800 text-2xl text-gold-300">
-                  {m.initials}
-                </span>
+                {m.photo ? (
+                  <span className="relative h-20 w-20 shrink-0 overflow-hidden bg-forest-800">
+                    <Image
+                      src={m.photo}
+                      alt={`${m.name}, ${m.role} at FGL Legal`}
+                      fill
+                      sizes="80px"
+                      className="object-cover object-top"
+                    />
+                  </span>
+                ) : (
+                  <span className="font-display grid h-20 w-20 shrink-0 place-items-center bg-forest-800 text-2xl text-gold-300">
+                    {m.initials}
+                  </span>
+                )}
                 <span>
                   <span className="font-display block text-xl text-forest-900">
                     {m.name}

@@ -211,6 +211,8 @@ export type TeamMember = {
   initials: string;
   bio: string;
   focus: string[];
+  /** Path under /public. Falls back to the monogram plate when omitted. */
+  photo?: string;
 };
 
 export const team: TeamMember[] = [
@@ -218,6 +220,7 @@ export const team: TeamMember[] = [
     name: "Adwoa Dapaah-Ntow, Esq.",
     role: "Managing Partner",
     initials: "AD",
+    photo: "/team-adwoa-dapaah-ntow.jpg",
     bio: "Adwoa Dapaah-Ntow is admitted to the Supreme Court of Ghana and has extensive experience in Commercial Law, Litigation, Intellectual Property, Insurance Law, Property Law, ADR, and Family Law. She also lectures at the University of Professional Studies, Accra (UPSA), where she teaches Immovable Property Law and Intellectual Property Law.",
     focus: ["Commercial Law", "Litigation", "Intellectual Property", "Property Law", "ADR"],
   },

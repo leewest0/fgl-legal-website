@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import PageHero from "@/components/PageHero";
 import { Button, Section } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
@@ -28,19 +29,32 @@ export default function TeamPage() {
                 i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""
               }`}
             >
-              {/* Portrait placeholder — monogram plate */}
+              {/* Portrait — photo when available, monogram plate otherwise */}
               <Reveal className="lg:col-span-4">
-                <div className="relative aspect-[4/5] w-full max-w-xs overflow-hidden bg-forest-800">
-                  <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_20%_0%,rgba(21,121,74,0.5),transparent_60%)]" />
-                  <span className="brace absolute left-4 top-2 text-6xl text-gold/30">
-                    {"{"}
-                  </span>
-                  <span className="brace absolute bottom-2 right-4 text-6xl text-gold/30">
-                    {"}"}
-                  </span>
-                  <span className="font-display absolute inset-0 grid place-items-center text-7xl text-gold-300">
-                    {m.initials}
-                  </span>
+                <div className="relative aspect-[4/5] w-full max-w-xs overflow-hidden border border-ink/10 bg-forest-800">
+                  <div className="absolute -top-px left-0 z-10 h-px w-24 bg-gold" />
+                  {m.photo ? (
+                    <Image
+                      src={m.photo}
+                      alt={`${m.name}, ${m.role} at FGL Legal`}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 33vw"
+                      className="object-cover object-top"
+                    />
+                  ) : (
+                    <>
+                      <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_20%_0%,rgba(21,121,74,0.5),transparent_60%)]" />
+                      <span className="brace absolute left-4 top-2 text-6xl text-gold/30">
+                        {"{"}
+                      </span>
+                      <span className="brace absolute bottom-2 right-4 text-6xl text-gold/30">
+                        {"}"}
+                      </span>
+                      <span className="font-display absolute inset-0 grid place-items-center text-7xl text-gold-300">
+                        {m.initials}
+                      </span>
+                    </>
+                  )}
                 </div>
               </Reveal>
 
