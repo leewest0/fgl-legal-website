@@ -10,7 +10,7 @@ import Image from "next/image";
 function LogoImage({
   href = "/",
   priority = false,
-  className = "",
+  className = "h-11 w-auto sm:h-12",
 }: {
   href?: string | null;
   priority?: boolean;
@@ -23,7 +23,7 @@ function LogoImage({
       width={140}
       height={48}
       priority={priority}
-      className={`h-11 w-auto sm:h-12 ${className}`}
+      className={className}
     />
   );
   if (href === null) return img;

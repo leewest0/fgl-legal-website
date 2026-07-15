@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { MapPin, Phone, Mail } from "lucide-react";
-import Logo from "./Logo";
+import { LogoImage } from "./Logo";
 import { firm, nav, practiceAreas } from "@/lib/content";
 
 export default function Footer() {
@@ -11,7 +11,9 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-12">
           {/* Brand */}
           <div className="md:col-span-4">
-            <Logo tone="light" showTagline href={null} />
+            <LogoImage
+              className="h-14 w-auto overflow-hidden rounded-md sm:h-16"
+            />
             <p className="mt-6 max-w-xs text-sm leading-relaxed text-paper/70">
               A new-generation Ghanaian law firm pairing legal excellence with
               commercial insight — in an atmosphere of grace.
