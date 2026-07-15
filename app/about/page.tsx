@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Check } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import { Button, Section, SectionHeading } from "@/components/ui";
@@ -22,17 +23,27 @@ export default function AboutPage() {
 
       {/* Story */}
       <Section tone="paper">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <Reveal className="lg:col-span-4">
+        <div className="grid gap-12 lg:grid-cols-12 lg:items-start lg:gap-16">
+          <Reveal className="lg:col-span-7">
             <SectionHeading kicker="Who We Are" title="About FGL LEGAL" />
-          </Reveal>
-          <Reveal className="lg:col-span-8" delay={120}>
-            <div className="space-y-6 text-lg leading-relaxed text-ink-500">
+            <div className="mt-8 space-y-6 text-lg leading-relaxed text-ink-500">
               {about.paragraphs.map((p, i) => (
                 <p key={i} className={i === 0 ? "text-forest-900" : ""}>
                   {p}
                 </p>
               ))}
+            </div>
+          </Reveal>
+          <Reveal className="lg:col-span-5 lg:sticky lg:top-28" delay={120}>
+            <div className="relative aspect-[4/5] overflow-hidden border border-ink/10">
+              <div className="absolute -top-px left-0 z-10 h-px w-24 bg-gold" />
+              <Image
+                src="/image2.png"
+                alt="An FGL Legal counsel reviewing documents at her desk beneath the scales of justice"
+                fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-cover"
+              />
             </div>
           </Reveal>
         </div>

@@ -99,6 +99,30 @@ export default function Home() {
         </div>
       </Section>
 
+      {/* ------------------------------------------- Feature band */}
+      <section className="relative h-[58vh] min-h-[360px] w-full overflow-hidden">
+        <Image
+          src="/image3.png"
+          alt="An FGL Legal counsel smiling by the office window"
+          fill
+          sizes="100vw"
+          className="object-cover object-[center_20%]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-forest-900/92 via-forest-900/70 to-forest-900/25" />
+        <div className="absolute inset-0 flex items-center px-gutter">
+          <Reveal className="mx-auto w-full max-w-6xl">
+            <div className="max-w-xl">
+              <span className="brace text-5xl leading-none text-gold">{"{"}</span>
+              <p className="font-display mt-4 text-2xl font-medium leading-snug text-paper sm:text-3xl">
+                Approachable counsel, rigorous advice — a firm built for the way
+                you do business today.
+              </p>
+              <div className="rule-gold mt-7 w-16" />
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ---------------------------------------------- About teaser */}
       <Section tone="forest">
         <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-16">

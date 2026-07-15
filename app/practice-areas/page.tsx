@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import PageHero from "@/components/PageHero";
 import { Button, Section } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
@@ -79,8 +80,20 @@ export default function PracticeAreasPage() {
 
       {/* CTA */}
       <Section tone="forest">
-        <Reveal className="flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-center">
-          <div>
+        <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
+          <Reveal className="lg:col-span-5">
+            <div className="relative aspect-[16/10] overflow-hidden border border-paper/15 lg:aspect-[4/5]">
+              <div className="absolute -top-px left-0 z-10 h-px w-24 bg-gold" />
+              <Image
+                src="/image4.png"
+                alt="A gavel resting beside a stack of leather-bound law books"
+                fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-cover"
+              />
+            </div>
+          </Reveal>
+          <Reveal className="lg:col-span-7" delay={120}>
             <h2 className="font-display max-w-lg text-2xl font-semibold leading-tight sm:text-3xl">
               Not sure which area your matter falls under?
             </h2>
@@ -88,13 +101,13 @@ export default function PracticeAreasPage() {
               Tell us what you&apos;re facing — we&apos;ll point you in the right
               direction.
             </p>
-          </div>
-          <div className="shrink-0">
-            <Button href="/contact" variant="solid">
-              Ask a Lawyer
-            </Button>
-          </div>
-        </Reveal>
+            <div className="mt-7">
+              <Button href="/contact" variant="solid">
+                Ask a Lawyer
+              </Button>
+            </div>
+          </Reveal>
+        </div>
       </Section>
     </>
   );
