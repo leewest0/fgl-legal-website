@@ -228,6 +228,7 @@ export const team: TeamMember[] = [
     name: "Neneh Ayiku Akotiah, Esq.",
     role: "Partner",
     initials: "NA",
+    photo: "/team-neneh-ayiku-akotiah.jpg",
     bio: "Neneh Ayiku Akotiah brings decades of executive banking experience together with expertise in Commercial Law, Banking & Finance, Regulatory Compliance, Trusteeship, Tax, Debt Restructuring, and Family Law. His experience spans leadership roles at Barclays Bank, SG Ghana, CAL Bank, ADB, Construction Bank, and consultancy work with CBG.",
     focus: ["Banking & Finance", "Regulatory Compliance", "Trusteeship", "Tax", "Debt Restructuring"],
   },
