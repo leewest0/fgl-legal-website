@@ -11,17 +11,23 @@ function LogoImage({
   href = "/",
   priority = false,
   className = "h-11 w-auto sm:h-12",
+  src = "/logo.png",
+  width = 140,
+  height = 48,
 }: {
   href?: string | null;
   priority?: boolean;
   className?: string;
+  src?: string;
+  width?: number;
+  height?: number;
 }) {
   const img = (
     <Image
-      src="/logo.png"
+      src={src}
       alt="FGL LEGAL (Adullam Chambers) — Legal Practitioners & Consultants"
-      width={140}
-      height={48}
+      width={width}
+      height={height}
       priority={priority}
       className={className}
     />

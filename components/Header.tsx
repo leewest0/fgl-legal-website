@@ -36,7 +36,13 @@ export default function Header() {
     >
       <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between gap-8 px-gutter">
         <div className="nav-in shrink-0" style={{ animationDelay: "0.1s" }}>
-          <LogoImage priority />
+          <LogoImage
+            priority
+            src="/logo-mark.png"
+            width={1280}
+            height={607}
+            className="h-12 w-auto sm:h-14"
+          />
         </div>
 
         <nav className="hidden items-center gap-10 lg:flex" aria-label="Primary">
