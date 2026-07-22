@@ -41,7 +41,7 @@ export default function Header() {
             src="/logo-mark.png"
             width={1280}
             height={607}
-            className="h-12 w-auto sm:h-14"
+            className="h-19 w-auto"
           />
         </div>
 
