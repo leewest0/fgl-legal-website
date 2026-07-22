@@ -29,7 +29,7 @@ export const nav = [
 ] as const;
 
 export const hero = {
-  headline: "Legal Solutions Built Around Your Business",
+  headline: "Legal solutions built for Protecting People and Powering businesses",
   subline: "Modern Legal Counsel. Practical Solutions. Trusted Partnership.",
 } as const;
 
@@ -37,7 +37,17 @@ export const whyChoose = {
   kicker: "Why Choose FGL LEGAL?",
   title: "A New Generation Law Firm",
   intro:
-    "We are redefining legal practice by combining deep legal expertise with technology, flexibility, and a client-first approach.",
+    "We are a new generation law firm grounded in grace and rigour.",
+  principles: [
+    {
+      term: "Grace",
+      def: "Client-centered counsel that respects your time, your goals, and your story.",
+    },
+    {
+      term: "Rigour",
+      def: "Legally sound, commercially aware legal work delivered to the highest standard.",
+    },
+  ],
   features: [
     {
       title: "Client-Focused Approach",
@@ -64,7 +74,7 @@ export const about = {
     "We believe that legal representation should not only solve today's problems but also create lasting protection for tomorrow.",
   ],
   vision:
-    "To become one of Ghana's most respected and innovative law firms, delivering accessible, technology-driven legal solutions that empower individuals and businesses across Africa.",
+    "To be one of Ghana's most respected and innovative law firms — delivering accessible, technology-driven legal solutions that empower individuals and businesses across the globe.",
   mission:
     "To provide exceptional legal representation and advisory services through professionalism, integrity, innovation, and client-focused solutions that create measurable value for every client.",
 } as const;
@@ -222,7 +232,7 @@ export const team: TeamMember[] = [
     initials: "AD",
     photo: "/team-adwoa-dapaah-ntow.jpg",
     bio: "Adwoa Dapaah-Ntow is admitted to the Supreme Court of Ghana and has extensive experience in Commercial Law, Litigation, Intellectual Property, Insurance Law, Property Law, ADR, and Family Law. She also lectures at the University of Professional Studies, Accra (UPSA), where she teaches Immovable Property Law and Intellectual Property Law.",
-    focus: ["Commercial Law", "Litigation", "Intellectual Property", "Property Law", "ADR"],
+    focus: ["Commercial Law", "Litigation", "Intellectual Property", "Property Law", "ADR", "Regulatory Compliance"],
   },
   {
     name: "Neneh Ayiku Akotiah, Esq.",

@@ -44,7 +44,7 @@ export default function Footer() {
           <div className="md:col-span-3">
             <h3 className="kicker text-paper/50">Practice</h3>
             <ul className="mt-5 space-y-3 text-sm">
-              {practiceAreas.slice(0, 6).map((p) => (
+              {practiceAreas.map((p) => (
                 <li key={p.slug}>
                   <Link
                     href={`/practice-areas#${p.slug}`}

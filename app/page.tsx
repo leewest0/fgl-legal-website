@@ -30,8 +30,10 @@ export default function Home() {
               Est. {firm.founded} · Accra, Ghana
             </span>
             <h1 className="font-display mt-7 text-[2.7rem] font-semibold leading-[1.02] sm:text-6xl lg:text-[4.1rem]">
-              Legal Solutions Built{" "}
-              <span className="text-gold-300">Around Your Business</span>
+              Legal solutions built for{" "}
+              <span className="text-gold-300">
+                Protecting People and Powering Businesses
+              </span>
             </h1>
             <p className="mt-7 max-w-xl font-display text-xl italic text-paper/85 sm:text-2xl">
               {hero.subline}
@@ -73,6 +75,16 @@ export default function Home() {
               intro={whyChoose.intro}
               as="h2"
             />
+            <dl className="mt-8 space-y-5 border-t border-ink/10 pt-8">
+              {whyChoose.principles.map((p) => (
+                <div key={p.term}>
+                  <dt className="font-display text-lg text-forest-900">
+                    {p.term}
+                  </dt>
+                  <dd className="mt-1 text-ink-500">{p.def}</dd>
+                </div>
+              ))}
+            </dl>
           </Reveal>
           <div className="lg:col-span-7">
             <ul className="divide-y divide-ink/10 border-t border-ink/10">
