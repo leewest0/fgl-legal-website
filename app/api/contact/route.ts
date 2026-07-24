@@ -47,6 +47,19 @@ export async function POST(req: Request) {
       { status: 400 }
     );
   }
+  // Length caps — reject oversized payloads before hitting the mail provider.
+  if (
+    name.length > 200 ||
+    email.length > 200 ||
+    phone.length > 60 ||
+    matter.length > 120 ||
+    message.length > 5000
+  ) {
+    return NextResponse.json(
+      { error: "One of your fields is too long. Please shorten it and try again." },
+      { status: 400 }
+    );
+  }
 
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.CONTACT_TO || "info@fgllegalgh.com";

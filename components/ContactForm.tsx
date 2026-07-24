@@ -82,6 +82,7 @@ export default function ContactForm() {
             name="name"
             type="text"
             required
+            maxLength={200}
             autoComplete="name"
             placeholder="Ama Mensah"
             className={fieldCls}
@@ -96,6 +97,7 @@ export default function ContactForm() {
             name="email"
             type="email"
             required
+            maxLength={200}
             autoComplete="email"
             placeholder="you@example.com"
             className={fieldCls}
@@ -112,6 +114,7 @@ export default function ContactForm() {
             id="phone"
             name="phone"
             type="tel"
+            maxLength={60}
             autoComplete="tel"
             placeholder="+233 …"
             className={fieldCls}
@@ -143,6 +146,7 @@ export default function ContactForm() {
           name="message"
           required
           rows={5}
+          maxLength={5000}
           placeholder="Briefly describe your matter…"
           className={`${fieldCls} resize-y`}
         />
