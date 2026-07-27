@@ -62,7 +62,14 @@ export async function POST(req: Request) {
   }
 
   const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.CONTACT_TO || "info@fgllegalgh.com";
+  // Recipients — comma-separated in CONTACT_TO; defaults to the partners.
+  const to = (
+    process.env.CONTACT_TO ||
+    "neneh.akotiah@fgllegalgh.com, adwoa.dapaah@fgllegalgh.com"
+  )
+    .split(",")
+    .map((addr) => addr.trim())
+    .filter(Boolean);
   // Resend requires a verified sender; onboarding@resend.dev works out of the box.
   const from = process.env.CONTACT_FROM || "FGL LEGAL Website <onboarding@resend.dev>";
 
@@ -100,7 +107,7 @@ export async function POST(req: Request) {
 
     const { error } = await resend.emails.send({
       from,
-      to: [to],
+      to,
       replyTo: email,
       subject: `New consultation request — ${name}`,
       html,
