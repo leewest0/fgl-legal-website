@@ -70,8 +70,8 @@ export async function POST(req: Request) {
     .split(",")
     .map((addr) => addr.trim())
     .filter(Boolean);
-  // Resend requires a verified sender; onboarding@resend.dev works out of the box.
-  const from = process.env.CONTACT_FROM || "FGL LEGAL Website <onboarding@resend.dev>";
+  // Sender on the verified fgllegalgh.com domain; override via CONTACT_FROM.
+  const from = process.env.CONTACT_FROM || "FGL LEGAL <noreply@fgllegalgh.com>";
 
   const successMessage =
     "Thank you — your request has been received. A member of our team will be in touch shortly.";
