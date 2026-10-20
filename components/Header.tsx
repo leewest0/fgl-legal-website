@@ -45,7 +45,7 @@ export default function Header() {
           />
         </div>
 
-        <nav className="hidden items-center gap-10 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-8 xl:flex" aria-label="Primary">
           {nav.map((item, i) => {
             const active =
               item.href === "/"
@@ -56,7 +56,7 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 style={{ animationDelay: `${0.15 + i * 0.06}s` }}
-                className={`nav-in link-underline text-[0.95rem] font-medium tracking-wide transition-colors ${
+                className={`nav-in link-underline whitespace-nowrap text-[0.95rem] font-medium tracking-wide transition-colors ${
                   active ? "text-forest" : "text-ink hover:text-forest"
                 }`}
               >
@@ -66,10 +66,10 @@ export default function Header() {
           })}
         </nav>
 
-        <div className="nav-in hidden shrink-0 items-center gap-6 lg:flex" style={{ animationDelay: "0.4s" }}>
+        <div className="nav-in hidden shrink-0 items-center gap-6 xl:flex" style={{ animationDelay: "0.4s" }}>
           <a
             href={`tel:${firm.phones[0].replace(/\s/g, "")}`}
-            className="flex items-center gap-2 whitespace-nowrap text-[0.9rem] font-medium text-ink transition-colors hover:text-forest"
+            className="hidden items-center gap-2 whitespace-nowrap text-[0.9rem] font-medium text-ink transition-colors hover:text-forest 2xl:flex"
           >
             <Phone size={16} className="text-gold" />
             {firm.phones[0]}
@@ -87,7 +87,7 @@ export default function Header() {
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
-          className="flex h-11 w-11 items-center justify-center text-forest-900 lg:hidden"
+          className="flex h-11 w-11 items-center justify-center text-forest-900 xl:hidden"
         >
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -95,7 +95,7 @@ export default function Header() {
 
       {/* Mobile drawer */}
       <div
-        className={`fixed inset-x-0 top-20 z-40 origin-top overflow-hidden border-t border-ink/10 bg-paper transition-[max-height,opacity] duration-300 lg:hidden ${
+        className={`fixed inset-x-0 top-20 z-40 origin-top overflow-hidden border-t border-ink/10 bg-paper transition-[max-height,opacity] duration-300 xl:hidden ${
           open ? "max-h-[80vh] opacity-100" : "pointer-events-none max-h-0 opacity-0"
         }`}
       >
