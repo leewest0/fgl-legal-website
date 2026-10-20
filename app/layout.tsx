@@ -52,12 +52,6 @@ export const metadata: Metadata = {
     title: "FGL LEGAL (Adullam Chambers)",
     description: "Modern legal counsel. Practical solutions. Trusted partnership.",
   },
-  icons: {
-    icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon.ico" },
-    ],
-  },
 };
 
 export default function RootLayout({
