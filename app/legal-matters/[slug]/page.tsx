@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BraceMark, Button } from "@/components/ui";
+import { firm } from "@/lib/content";
 import {
   articles,
   formatDate,
   getArticle,
   readingMinutes,
+  type Article,
   type ArticleBlock,
 } from "@/lib/articles";
 
@@ -21,18 +23,80 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const article = getArticle((await params).slug);
   if (!article) return {};
+  const title = article.seo?.title ?? article.title;
+  const description = article.seo?.description ?? article.excerpt;
+  const url = `/legal-matters/${article.slug}`;
   return {
-    title: article.title,
-    description: article.excerpt,
+    title: { absolute: `${title} | FGL Legal` },
+    description,
+    keywords: article.seo?.keywords,
     authors: [{ name: article.author }],
+    alternates: { canonical: url },
     openGraph: {
       type: "article",
-      title: article.title,
-      description: article.excerpt,
+      siteName: firm.full,
+      locale: "en_GH",
+      title,
+      description,
+      url,
       publishedTime: article.date,
+      modifiedTime: article.date,
       authors: [article.author],
-      url: `/legal-matters/${article.slug}`,
+      section: article.category,
+      tags: article.tags,
     },
+    twitter: { card: "summary_large_image", title, description },
+  };
+}
+
+function articleJsonLd(article: Article) {
+  const url = `${firm.url}/legal-matters/${article.slug}`;
+  const words = article.body
+    .map((b) => (b.type === "list" ? b.items.join(" ") : b.text))
+    .join(" ")
+    .split(/\s+/).length;
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": `${url}#article`,
+        headline: article.title,
+        alternativeHeadline: article.seo?.title,
+        description: article.seo?.description ?? article.excerpt,
+        image: [`${url}/opengraph-image`],
+        datePublished: article.date,
+        dateModified: article.date,
+        author: { "@type": "Person", name: article.author },
+        publisher: {
+          "@type": "LegalService",
+          name: firm.full,
+          url: firm.url,
+          logo: { "@type": "ImageObject", url: `${firm.url}/icon.png` },
+        },
+        mainEntityOfPage: { "@type": "WebPage", "@id": url },
+        url,
+        articleSection: article.category,
+        keywords: article.seo?.keywords.join(", "),
+        about: article.tags,
+        wordCount: words,
+        inLanguage: "en-GH",
+        isAccessibleForFree: true,
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: firm.url },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Legal Matters",
+            item: `${firm.url}/legal-matters`,
+          },
+          { "@type": "ListItem", position: 3, name: article.title, item: url },
+        ],
+      },
+    ],
   };
 }
 
@@ -84,6 +148,12 @@ export default async function ArticlePage({ params }: Params) {
 
   return (
     <article>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(articleJsonLd(article)).replace(/</g, "\\u003c"),
+        }}
+      />
       <header className="relative overflow-hidden bg-forest-900 px-gutter py-16 text-paper sm:py-24">
         <BraceMark className="pointer-events-none absolute -right-8 top-1/2 hidden -translate-y-1/2 text-[24rem] leading-none text-gold/[0.06] sm:block" />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(100%_100%_at_10%_0%,rgba(21,121,74,0.3),transparent_55%)]" />

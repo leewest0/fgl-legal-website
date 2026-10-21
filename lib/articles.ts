@@ -13,6 +13,8 @@ export type Article = {
   date: string;
   category: string;
   tags: string[];
+  /** Search-engine title/description; defaults to title/excerpt. */
+  seo?: { title: string; description: string; keywords: string[] };
   body: ArticleBlock[];
   references?: string[];
 };
@@ -28,6 +30,25 @@ export const articles: Article[] = [
     date: "2026-10-20",
     category: "Commentary",
     tags: ["Child Protection", "Constitutional Law", "Education"],
+    seo: {
+      title:
+        "Obuasi SHTS Scandal: Morality, Legality and the Child's Best Interest",
+      description:
+        "Should the Obuasi SHTS headmaster step aside? A Ghanaian lawyer on the presumption of innocence, the Children's Act, and why closing the school fails students.",
+      keywords: [
+        "Obuasi SHTS",
+        "Obuasi Senior High Technical School",
+        "Obuasi SHTS headmaster",
+        "Obuasi SHS scandal",
+        "headmaster step aside",
+        "presumption of innocence Ghana",
+        "Article 19 1992 Constitution",
+        "Children's Act 560",
+        "interdiction pending investigation",
+        "child protection Ghana schools",
+        "GES Code of Conduct",
+      ],
+    },
     body: [
       {
         type: "p",

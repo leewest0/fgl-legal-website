@@ -19,7 +19,7 @@ const inter = Inter({
   display: "swap",
 });
 
-const siteUrl = "https://fgllegalgh.com";
+const siteUrl = firm.url;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

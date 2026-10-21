@@ -6,6 +6,7 @@
 export const firm = {
   name: "FGL LEGAL",
   full: "FGL LEGAL (Adullam Chambers)",
+  url: "https://fgllegalgh.com",
   chambers: "Adullam Chambers",
   tagline: "Legal Practitioners & Consultants",
   founded: "2021",
@@ -30,7 +31,7 @@ export const nav = [
 ] as const;
 
 export const hero = {
-  headline: "Legal solutions built for Protecting People and Powering businesses",
+  headline: "Legal solutions built for Protecting People and Powering Businesses",
   subline: "Modern Legal Counsel. Practical Solutions. Trusted Partnership.",
 } as const;
 
